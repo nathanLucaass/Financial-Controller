@@ -1,16 +1,17 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, BrowserRouter } from 'react-router-dom';
 import LoginPage from './pages/LoginPage';
 import HomePage from './pages/HomePage';
-import { BrowserRouter } from 'react-router-dom/cjs/react-router-dom.min';
 
 const Routes = () => {
   return (
-    <BrowserRouter>
-    <Switch>
-      <Route exact path="/" component={LoginPage} />
-      <Route path="/home" component={HomePage} />
-    </Switch>
+      <BrowserRouter>
+      <React.StrictMode>
+      <Switch>
+        <Route exact path="/" component={LoginPage} />
+        <Route exact path="/home" component={HomePage} />
+      </Switch>
+      </React.StrictMode>
     </BrowserRouter>
   );
 };
