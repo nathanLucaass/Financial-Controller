@@ -8,7 +8,7 @@ export default class UserController {
 
   async createUser(req: Request, res: Response) {
     const { username, email, password } = req.body;
-    const user = await this.userService.createUser(username, email, password);
-    return res.status(201).json(user);
+    const response = await this.userService.createUser(username, email, password);
+    return res.status(201).json(response.data);
   }
 }
