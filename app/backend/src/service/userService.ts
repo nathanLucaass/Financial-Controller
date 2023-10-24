@@ -1,7 +1,6 @@
 import * as bcrypt from 'bcryptjs';
 import UserModel from '../database/models/UserModel';
 import { TokenManager } from '../token';
-import { response } from 'express';
 
 interface Response {
   status: string;
@@ -20,7 +19,7 @@ export default class UserService {
    email,
    password: hashedPassword,
   });
-  
+
   return {status: 'success',data: user};
 };
 

@@ -2,7 +2,7 @@
 const config = {
     username: process.env.DB_USER || 'root',
     password: process.env.DB_PASS || '123456',
-    database: 'GASTOS_EMPRESARIAIS',
+    database: 'FINATIAL_CONTROL',
     host: process.env.DB_HOST || 'localhost',
     port: Number(process.env.DB_PORT) || 3306,
     dialect: 'mysql',

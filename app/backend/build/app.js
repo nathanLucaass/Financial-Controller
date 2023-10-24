@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const express = require("express");
+const routes_1 = require("./routes");
 class App {
     constructor() {
         this.app = express();
@@ -15,6 +16,7 @@ class App {
         };
         this.app.use(express.json());
         this.app.use(accessControl);
+        this.app.use(routes_1.default);
     }
     start(PORT) {
         this.app.listen(PORT, () => console.log(`Running on port ${PORT}`));
