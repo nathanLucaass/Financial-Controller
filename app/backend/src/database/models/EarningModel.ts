@@ -7,7 +7,7 @@ import {
 } from 'sequelize';
 import db from '.'
 
-export default class Bill extends Model<InferAttributes<Bill>, InferCreationAttributes<Bill>> {
+export default class Earning extends Model<InferAttributes<Earning>, InferCreationAttributes<Earning>> {
   declare id: CreationOptional<number>;
   declare date: Date;
   declare description: string;
@@ -15,7 +15,7 @@ export default class Bill extends Model<InferAttributes<Bill>, InferCreationAttr
   declare user_id: number;
 }
 
-Bill.init({
+Earning.init({
   id: {
     type: DataTypes.INTEGER,
     allowNull: false,
@@ -44,6 +44,6 @@ Bill.init({
   },
 }, {
   sequelize: db,
-  tableName: 'bills',
+  tableName: 'earnings',
   timestamps: false,
 });

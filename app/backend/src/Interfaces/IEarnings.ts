@@ -1,4 +1,4 @@
-export default interface IBill {
+export default interface IEarnings {
   id: number;
   date: Date;
   description: string;

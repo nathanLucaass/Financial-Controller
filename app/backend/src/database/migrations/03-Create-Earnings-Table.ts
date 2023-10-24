@@ -1,9 +1,9 @@
 import { Model, QueryInterface, DataTypes } from 'sequelize';
-import IBill from '../../Interfaces/IBill';
+import IEarnings from '../../Interfaces/IEarnings';
 
 export default {
   up(queryInterface: QueryInterface) {
-    return queryInterface.createTable<Model<IBill>>('bills', {
+    return queryInterface.createTable<Model<IEarnings>>('earnings', {
       id: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -34,6 +34,6 @@ export default {
   },
   
   down(queryInterface: QueryInterface) {
-    return queryInterface.dropTable('bills');
+    return queryInterface.dropTable('earnings');
   },
 }

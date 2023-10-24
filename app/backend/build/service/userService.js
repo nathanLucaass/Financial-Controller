@@ -28,6 +28,8 @@ class UserService {
         const token = this.tokenManager.generateToken(email);
         return { status: 'success', data: token };
     }
+    ;
 }
 exports.default = UserService;
+;
 //# sourceMappingURL=userService.js.map

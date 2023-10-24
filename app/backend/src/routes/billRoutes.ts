@@ -6,5 +6,5 @@ const billController = new BillController();
 const router = Router();
 
 router.post('/new', NewBillValidator, (req: Request, res: Response) => billController.createBill(req, res));
-
+router.get('/:id', (req: Request, res: Response) => billController.getBills(req, res));
 export default router;

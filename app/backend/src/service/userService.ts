@@ -35,5 +35,5 @@ export default class UserService {
 
     const token = this.tokenManager.generateToken(email);
     return {status: 'success', data: token};
-  }
-}
+  };
+};

@@ -21,7 +21,15 @@ exports.default = {
             value: {
                 allowNull: false,
                 type: sequelize_1.DataTypes.FLOAT,
-            }
+            },
+            user_id: {
+                allowNull: false,
+                type: sequelize_1.DataTypes.INTEGER,
+                references: {
+                    model: 'users',
+                    key: 'id',
+                }
+            },
         });
     },
     down(queryInterface) {

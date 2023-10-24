@@ -14,7 +14,7 @@ Bill.init({
     },
     date: {
         allowNull: false,
-        type: sequelize_1.DataTypes.DATE,
+        type: sequelize_1.DataTypes.STRING,
     },
     description: {
         allowNull: false,
@@ -23,10 +23,18 @@ Bill.init({
     value: {
         allowNull: false,
         type: sequelize_1.DataTypes.FLOAT,
-    }
+    },
+    user_id: {
+        allowNull: false,
+        type: sequelize_1.DataTypes.INTEGER,
+        references: {
+            model: 'users',
+            key: 'id',
+        }
+    },
 }, {
     sequelize: _1.default,
-    tableName: 'Bill',
+    tableName: 'bills',
     timestamps: false,
 });
 //# sourceMappingURL=BIllModel.js.map
