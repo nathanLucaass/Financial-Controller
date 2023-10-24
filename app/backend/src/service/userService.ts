@@ -1,8 +1,9 @@
 import * as bcrypt from 'bcryptjs';
 import UserModel from '../database/models/UserModel';
 import { TokenManager } from '../token';
+import { response } from 'express';
 
-interface LoginResponse {
+interface Response {
   status: string;
   data: object;
 }
@@ -12,17 +13,28 @@ export default class UserService {
     private tokenManager: TokenManager = new TokenManager()
   ) {}
 
- async createUser(username: string, email: string, password: string): Promise<LoginResponse> {
+ async createUser(username: string, email: string, password: string): Promise<Response> {
   const hashedPassword = await bcrypt.hash(password, 10);
   const user = await UserModel.create({
    username,
    email,
    password: hashedPassword,
   });
-  const token = this.tokenManager.generateToken(email);
-  return {
-   status: 'success',
-   data: token,
-  };
- }
+  
+  return {status: 'success',data: user};
+};
+
+ async login(email: string, password: string): Promise<Response> {
+  const user = await UserModel.findOne({ where: { email } });
+
+    if(!user) {
+    return {status: 'error', data: {message: 'User not found'}};
+    }
+    if(!bcrypt.compareSync(password, user.password)) {
+    return {status: 'error', data: {message: 'Invalid password'}};
+    }
+
+    const token = this.tokenManager.generateToken(email);
+    return {status: 'success', data: token};
+  }
 }

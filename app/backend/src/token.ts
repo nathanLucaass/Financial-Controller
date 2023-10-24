@@ -14,7 +14,7 @@ export class TokenManager {
 
     const token = jwt.sign(jwtPayload, this.secret, {
       algorithm: 'HS256',
-      expiresIn: '8h',
+      expiresIn: '7d',
     });
 
     return { token };
