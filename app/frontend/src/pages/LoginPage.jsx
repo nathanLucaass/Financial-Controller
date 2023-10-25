@@ -41,21 +41,21 @@ function Login() {
           <div className="text-center mb-4">
             <img src="https://i.ibb.co/0FVRL61/Financial.png" width={100} className="mx-auto" alt="Logo" />
           </div>
-          <label>
+          <label htmlFor="email-input">
             Email:
-            <input className="block w-full mt-2 p-2 border rounded" type="email" value={email} onChange={handleEmailChange} />
+            <input id="email-input" className="block w-full mt-2 p-2 border rounded" type="email" value={email} onChange={handleEmailChange} />
           </label>
           <br />
-          <label>
+          <label htmlFor="password-input">
             Password:
-            <input className="block w-full mt-2 p-2 border rounded" type="password" value={password} onChange={handlePasswordChange} />
+            <input id="password-input" className="block w-full mt-2 p-2 border rounded" type="password" value={password} onChange={handlePasswordChange} />
           </label>
           <br />
           <button className="block w-full bg-blue-500 text-white mt-4 p-2 rounded" type="submit">
             Login
           </button>
-          <h3 className="text-red-500 mt-2">{error}</h3>
-          <a className="mt-2 block text-blue-500" href="/register">
+          <h3 className="text-red-500 mt-2 text-center">{error}</h3>
+          <a className="mt-2 block text-blue-500 text-center" href="/register">
             Ainda não possuo cadastro
           </a>
         </form>
