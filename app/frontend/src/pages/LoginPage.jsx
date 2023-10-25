@@ -35,6 +35,7 @@ function Login() {
   };
 
   return (
+    <div className='bg-red-500'>
     <form onSubmit={handleSubmit}>
       <label>
         Email:
@@ -50,6 +51,7 @@ function Login() {
       <h3>{error}</h3>
       <a href="/register">Ainda não possuo cadastro</a>
     </form>
+    </div>
   );
 }
 
