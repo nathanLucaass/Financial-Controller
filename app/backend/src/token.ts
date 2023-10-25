@@ -1,26 +1,27 @@
-import * as jwt from 'jsonwebtoken';
+import * as jwt from 'jsonwebtoken'
 
 export class TokenManager {
-  private secret: string;
+  private readonly secret: string
 
-  constructor(secret: string = process.env.JWT_SECRET || 'jwt_secret') {
-    this.secret = secret;
+  // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
+  constructor (secret: string = process.env.JWT_SECRET ?? 'jwt_secret') {
+    this.secret = secret
   }
 
-  generateToken(username: string): TokenPayload {
+  generateToken (username: string): TokenPayload {
     const jwtPayload = {
-      sub: username,
-    };
+      sub: username
+    }
 
     const token = jwt.sign(jwtPayload, this.secret, {
       algorithm: 'HS256',
-      expiresIn: '7d',
-    });
+      expiresIn: '7d'
+    })
 
-    return { token };
+    return { token }
   }
 }
 
-export type TokenPayload = {
-  token: string;
-};
+export interface TokenPayload {
+  token: string
+}

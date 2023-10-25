@@ -1,18 +1,18 @@
 import {
   DataTypes,
   Model,
-  InferAttributes,
-  InferCreationAttributes,
-  CreationOptional,
-} from 'sequelize';
+  type InferAttributes,
+  type InferCreationAttributes,
+  type CreationOptional
+} from 'sequelize'
 import db from '.'
 
 export default class Bill extends Model<InferAttributes<Bill>, InferCreationAttributes<Bill>> {
-  declare id: CreationOptional<number>;
-  declare date: Date;
-  declare description: string;
-  declare value: number;
-  declare user_id: number;
+  declare id: CreationOptional<number>
+  declare date: Date
+  declare description: string
+  declare value: number
+  declare user_id: number
 }
 
 Bill.init({
@@ -20,30 +20,30 @@ Bill.init({
     type: DataTypes.INTEGER,
     allowNull: false,
     autoIncrement: true,
-    primaryKey: true,
+    primaryKey: true
   },
   date: {
     allowNull: false,
-    type: DataTypes.STRING,
+    type: DataTypes.STRING
   },
   description: {
     allowNull: false,
-    type: DataTypes.STRING,
+    type: DataTypes.STRING
   },
   value: {
     allowNull: false,
-    type: DataTypes.FLOAT,
+    type: DataTypes.FLOAT
   },
   user_id: {
     allowNull: false,
     type: DataTypes.INTEGER,
     references: {
       model: 'users',
-      key: 'id',
+      key: 'id'
     }
-  },
+  }
 }, {
   sequelize: db,
   tableName: 'bills',
-  timestamps: false,
-});
+  timestamps: false
+})

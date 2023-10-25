@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
-import ReactDOM from 'react-dom';
+import React, { useContext, useState } from 'react';
 import { useHistory } from 'react-router-dom'; 
 import callLoginApi from '../services/loginAPI';
+import UserInfoContext from '../context/UserInfoContext';
 
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(''); 
   const history = useHistory(); 
+
+  const {setUserId, setUserToken} = useContext(UserInfoContext);
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
@@ -25,7 +27,9 @@ function Login() {
       console.log('error');
       setError(response.message);
     } else {
-      console.log('success');
+      setUserId(response.userId);
+      setUserToken(response.token);
+
       history.push('/home');
     }
   };

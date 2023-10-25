@@ -1,32 +1,32 @@
-import { Model, QueryInterface, DataTypes } from 'sequelize';
-import IUser from '../../Interfaces/IUser';
+import { type Model, type QueryInterface, DataTypes } from 'sequelize'
+import type IUser from '../../Interfaces/IUser'
 
 export default {
-  up(queryInterface: QueryInterface) {
-    return queryInterface.createTable<Model<IUser>>('users', {
+  async up (queryInterface: QueryInterface) {
+    await queryInterface.createTable<Model<IUser>>('users', {
       id: {
         type: DataTypes.INTEGER,
         allowNull: false,
         autoIncrement: true,
-        primaryKey: true,
+        primaryKey: true
       },
       username: {
         allowNull: false,
-        type: DataTypes.STRING,
+        type: DataTypes.STRING
       },
       email: {
         allowNull: false,
         unique: true,
-        type: DataTypes.STRING,
+        type: DataTypes.STRING
       },
       password: {
         allowNull: false,
-        type: DataTypes.STRING,
+        type: DataTypes.STRING
       }
     })
   },
-  
-  down(queryInterface: QueryInterface) {
-    return queryInterface.dropTable('users');
-  },
+
+  async down (queryInterface: QueryInterface) {
+    await queryInterface.dropTable('users')
+  }
 }
