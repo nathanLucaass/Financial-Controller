@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import SideBar from '../components/SideBar';
 import getAllBills from '../services/billsService';
 import getAllEarnings from '../services/earningsService';
@@ -7,7 +7,9 @@ import DailyResume from '../components/DailyResume';
 
 function Home() {
   const { userId } = useContext(UserInfoContext);
-  const { setBills, setEarnings, isLoading, setIsLoading } = useContext(UserInfoContext);
+  const {
+    setBills, setEarnings, setIsLoading,
+  } = useContext(UserInfoContext);
 
   useEffect(() => {
     async function fetchData() {
@@ -22,10 +24,11 @@ function Home() {
   }, [setBills]);
 
   return (
-    <div>
-      <h1>hello</h1>
+    <div className="flex">
       <SideBar />
-      <DailyResume />
+      <div className="w-full p-4">
+        <DailyResume />
+      </div>
     </div>
   );
 }

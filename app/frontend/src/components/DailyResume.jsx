@@ -5,7 +5,10 @@ function DailyResume() {
   const { bills, earnings, isLoading } = useContext(UserInfoContext);
 
   const calculateTotal = (items) => {
-    return items.reduce((total, item) => total + item.value, 0);
+    if (items && Array.isArray(items)) {
+      return items.reduce((total, item) => total + item.value, 0);
+    }
+    return 0;
   };
 
   const totalEntrada = calculateTotal(bills);
@@ -17,22 +20,29 @@ function DailyResume() {
   };
 
   return (
-    <div>
+    <div className="bg-white p-4 max-w-md mx-auto border rounded shadow">
       {isLoading ? (
         <h1>Loading...</h1>
       ) : (
         <main>
+          <div className="text-center mb-4">
+            <h2 className="text-2xl font-semibold">Resumo Diário</h2>
+          </div>
           <div>
-            <h2>Entrada</h2>
-            <p>Total da Entrada: R$ {totalEntrada}</p>
+            <h2 className="text-lg font-semibold">Entrada</h2>
+            <p className="font-semibold">
+              Total da Entrada: R$
+              {' '}
+              {totalEntrada}
+            </p>
             <ul>
-              <li>
+              <li className="flex justify-between border-b py-2">
                 <span>Data</span>
                 <span>Descrição</span>
                 <span>Valor</span>
               </li>
               {bills.map((bill) => (
-                <li key={bill.id}>
+                <li key={bill.id} className="flex justify-between py-2">
                   <span>{formatDate(bill.date)}</span>
                   <span>{bill.description}</span>
                   <span>{bill.value}</span>
@@ -40,17 +50,21 @@ function DailyResume() {
               ))}
             </ul>
           </div>
-          <div>
-            <h2>Saída</h2>
-            <p>Total da Saída: R$ {totalSaida}</p>
+          <div className="mt-4">
+            <h2 className="text-lg font-semibold">Saída</h2>
+            <p className="font-semibold">
+              Total da Saída: R$
+              {' '}
+              {totalSaida}
+            </p>
             <ul>
-              <li>
+              <li className="flex justify-between border-b py-2">
                 <span>Data</span>
                 <span>Descrição</span>
                 <span>Valor</span>
               </li>
               {earnings.map((earning) => (
-                <li key={earning.id}>
+                <li key={earning.id} className="flex justify-between py-2">
                   <span>{formatDate(earning.date)}</span>
                   <span>{earning.description}</span>
                   <span>{earning.value}</span>
