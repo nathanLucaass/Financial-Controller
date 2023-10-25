@@ -13,6 +13,7 @@ function DailyResume() {
 
   const totalEntrada = calculateTotal(bills);
   const totalSaida = calculateTotal(earnings);
+  const saldo = totalEntrada - totalSaida;
 
   const formatDate = (dateString) => {
     const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
@@ -67,10 +68,23 @@ function DailyResume() {
                 <li key={earning.id} className="flex justify-between py-2">
                   <span>{formatDate(earning.date)}</span>
                   <span>{earning.description}</span>
-                  <span>{earning.value}</span>
+                  <span>
+                    R$
+                    {' '}
+                    {earning.value.toFixed(2)}
+                  </span>
+
                 </li>
               ))}
             </ul>
+          </div>
+          <div className="mt-4">
+            <h2 className="text-lg font-semibold">Saldo</h2>
+            <p className="font-semibold">
+              Saldo: R$
+              {' '}
+              {saldo}
+            </p>
           </div>
         </main>
       )}
