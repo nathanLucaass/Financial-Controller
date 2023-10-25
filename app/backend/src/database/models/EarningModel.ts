@@ -24,7 +24,7 @@ Earning.init({
   },
   date: {
     allowNull: false,
-    type: DataTypes.STRING
+    type: DataTypes.DATE
   },
   description: {
     allowNull: false,

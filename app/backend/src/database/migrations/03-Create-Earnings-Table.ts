@@ -1,4 +1,4 @@
-import { DataTypes, Sequelize } from 'sequelize'
+import { DataTypes } from 'sequelize'
 import type { QueryInterface } from 'sequelize'
 
 export default {
@@ -10,7 +10,10 @@ export default {
         autoIncrement: true,
         primaryKey: true
       },
-
+      date: {
+        allowNull: false,
+        type: DataTypes.DATE
+      },
       description: {
         allowNull: false,
         type: DataTypes.STRING
@@ -26,16 +29,6 @@ export default {
           model: 'users',
           key: 'id'
         }
-      },
-      created_at: {
-        allowNull: false,
-        type: DataTypes.DATE, // Timestamp de criação
-        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
-      },
-      updated_at: {
-        allowNull: false,
-        type: DataTypes.DATE, // Timestamp de atualização
-        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP')
       }
     })
   },
