@@ -1,4 +1,4 @@
-async function callLoginAPI(email, password) {
+const callLoginAPI = async (email, password) => {
   const response = await fetch('http://localhost:3001/user/login', {
     method: 'POST',
     headers: {
