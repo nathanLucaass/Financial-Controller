@@ -12,21 +12,21 @@ class UserService {
         const user = await UserModel_1.default.create({
             username,
             email,
-            password: hashedPassword,
+            password: hashedPassword
         });
         return { status: 'success', data: user };
     }
     ;
     async login(email, password) {
         const user = await UserModel_1.default.findOne({ where: { email } });
-        if (!user) {
+        if (user == null) {
             return { status: 'error', data: { message: 'User not found' } };
         }
         if (!bcrypt.compareSync(password, user.password)) {
             return { status: 'error', data: { message: 'Invalid password' } };
         }
         const token = this.tokenManager.generateToken(email);
-        return { status: 'success', data: token };
+        return { status: 'success', data: { userId: user === null || user === void 0 ? void 0 : user.dataValues.id, token } };
     }
     ;
 }

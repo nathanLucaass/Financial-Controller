@@ -1,19 +1,16 @@
-import { type Model, type QueryInterface, DataTypes } from 'sequelize'
-import type IEarnings from '../../Interfaces/IEarnings'
+import { DataTypes, Sequelize } from 'sequelize'
+import type { QueryInterface } from 'sequelize'
 
 export default {
   async up (queryInterface: QueryInterface) {
-    await queryInterface.createTable<Model<IEarnings>>('earnings', {
+    await queryInterface.createTable('earnings', {
       id: {
         type: DataTypes.INTEGER,
         allowNull: false,
         autoIncrement: true,
         primaryKey: true
       },
-      date: {
-        allowNull: false,
-        type: DataTypes.DATE
-      },
+
       description: {
         allowNull: false,
         type: DataTypes.STRING
@@ -29,6 +26,16 @@ export default {
           model: 'users',
           key: 'id'
         }
+      },
+      created_at: {
+        allowNull: false,
+        type: DataTypes.DATE, // Timestamp de criação
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
+      },
+      updated_at: {
+        allowNull: false,
+        type: DataTypes.DATE, // Timestamp de atualização
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP')
       }
     })
   },

@@ -48,6 +48,7 @@ function Login() {
       <br />
       <button type="submit">Login</button>
       <h3>{error}</h3>
+      <a href="/register">Ainda não possuo cadastro</a>
     </form>
   );
 }

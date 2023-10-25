@@ -19,7 +19,7 @@ class App {
         this.app.use(routes_1.default);
     }
     start(PORT) {
-        this.app.listen(PORT, () => console.log(`Running on port ${PORT}`));
+        this.app.listen(PORT, () => { console.log(`Running on port ${PORT}`); });
     }
 }
 exports.default = App;

@@ -10,24 +10,24 @@ User.init({
         type: sequelize_1.DataTypes.INTEGER,
         allowNull: false,
         autoIncrement: true,
-        primaryKey: true,
+        primaryKey: true
     },
     username: {
         allowNull: false,
-        type: sequelize_1.DataTypes.STRING,
+        type: sequelize_1.DataTypes.STRING
     },
     email: {
         allowNull: false,
         unique: true,
-        type: sequelize_1.DataTypes.STRING,
+        type: sequelize_1.DataTypes.STRING
     },
     password: {
         allowNull: false,
-        type: sequelize_1.DataTypes.STRING,
+        type: sequelize_1.DataTypes.STRING
     }
 }, {
     sequelize: _1.default,
     tableName: 'users',
-    timestamps: false,
+    timestamps: false
 });
 //# sourceMappingURL=UserModel.js.map

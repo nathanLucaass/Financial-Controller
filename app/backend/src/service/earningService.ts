@@ -5,6 +5,7 @@ interface Response {
 }
 
 export default class EarningService {
+  // eslint-disable-next-line @typescript-eslint/naming-convention
   async createEarning (date: Date, description: string, value: number, user_id: number): Promise<Response> {
     const earning = await EarningModel.create({
       date,

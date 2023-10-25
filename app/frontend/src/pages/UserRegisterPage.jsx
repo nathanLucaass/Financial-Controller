@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
 import userRegisterAPI from '../services/userRegisterAPI';
+import { useHistory } from 'react-router-dom'; 
 
 function UserRegisterPage() {
   const [userName, setUserName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const history = useHistory(); 
 
   const handleSubmit = (event) => {
     event.preventDefault();
     userRegisterAPI(userName, email, password);
+    history.push('/');
   };
 
   return (
