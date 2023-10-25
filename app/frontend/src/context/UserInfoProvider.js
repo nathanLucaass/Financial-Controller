@@ -5,9 +5,10 @@ const UserInfoProvider = ({ children }) => {
   const [userId, setUserId] = useState(null);
   const [userToken, setUserToken] = useState(null);
   const [bills, setBills] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   return (
-    <UserInfoContext.Provider value={{ userId, setUserId, userToken, setUserToken, bills, setBills }}>
+    <UserInfoContext.Provider value={{ userId, setUserId, userToken, setUserToken, bills, setBills, isLoading, setIsLoading }}>
       {children}
     </UserInfoContext.Provider>
   );

@@ -6,9 +6,9 @@ export default class BillController {
 
   async createBill (req: Request, res: Response): Promise<Response> {
     // eslint-disable-next-line @typescript-eslint/naming-convention
-    const { description, value, user_id } = req.body
+    const { date, description, value, user_id } = req.body
 
-    const response = await this.billService.createBill(description, value, user_id)
+    const response = await this.billService.createBill(date, description, value, user_id)
 
     return res.status(201).json(response.data)
   }

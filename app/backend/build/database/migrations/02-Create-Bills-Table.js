@@ -10,6 +10,10 @@ exports.default = {
                 autoIncrement: true,
                 primaryKey: true
             },
+            date: {
+                allowNull: false,
+                type: sequelize_1.DataTypes.DATE
+            },
             description: {
                 allowNull: false,
                 type: sequelize_1.DataTypes.STRING

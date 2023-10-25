@@ -12,6 +12,10 @@ Bill.init({
         autoIncrement: true,
         primaryKey: true
     },
+    date: {
+        allowNull: false,
+        type: sequelize_1.DataTypes.STRING
+    },
     description: {
         allowNull: false,
         type: sequelize_1.DataTypes.STRING
@@ -30,6 +34,7 @@ Bill.init({
     }
 }, {
     sequelize: _1.default,
-    tableName: 'bills'
+    tableName: 'bills',
+    timestamps: false
 });
 //# sourceMappingURL=BIllModel.js.map
