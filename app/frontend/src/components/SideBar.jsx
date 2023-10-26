@@ -12,12 +12,12 @@ function SideBar() {
       <div className="username text-center">
         <p>{userName}</p>
       </div>
-      <nav className="navbar mt-4">
+      <nav className="navbar mt-4 text-left">
         <ul>
-          <li><a href="#" className="block py-2 hover:bg-blue-600">Home</a></li>
-          <li><a href="#" className="block py-2 hover:bg-blue-600">Entrada</a></li>
-          <li><a href="#" className="block py-2 hover:bg-blue-600">Saida</a></li>
-          <li><a href="#" className="block py-2 hover:bg-blue-600">Page 4</a></li>
+          <li><a href="#" className="block py-2 hover:bg-blue-600 text-xl ">Home</a></li>
+          <li><a href="#" className="block py-2 hover:bg-blue-600 text-xl	">Entrada</a></li>
+          <li><a href="#" className="block py-2 hover:bg-blue-600 text-xl	">Saida</a></li>
+          <li><a href="#" className="block py-2 hover:bg-blue-600 text-xl	">Page 4</a></li>
         </ul>
       </nav>
     </div>
