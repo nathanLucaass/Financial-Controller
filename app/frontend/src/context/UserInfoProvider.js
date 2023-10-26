@@ -1,3 +1,5 @@
+import React from 'react';
+import PropTypes from 'prop-types';
 import { useState } from 'react';
 import UserInfoContext from './UserInfoContext';
 
@@ -18,5 +20,9 @@ function UserInfoProvider({ children }) {
     </UserInfoContext.Provider>
   );
 }
+
+UserInfoProvider.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 
 export default UserInfoProvider;

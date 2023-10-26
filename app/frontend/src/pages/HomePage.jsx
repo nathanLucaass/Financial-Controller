@@ -4,6 +4,7 @@ import getAllBills from '../services/billsService';
 import getAllEarnings from '../services/earningsService';
 import UserInfoContext from '../context/UserInfoContext';
 import DailyResume from '../components/DailyResume';
+import TotalResume from '../components/TotalResume';
 
 function Home() {
   const { userId } = useContext(UserInfoContext);
@@ -28,6 +29,9 @@ function Home() {
       <SideBar />
       <div className="w-full p-4">
         <DailyResume />
+      </div>
+      <div className="w-full p-4">
+        <TotalResume />
       </div>
     </div>
   );

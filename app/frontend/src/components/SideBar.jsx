@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useContext } from 'react';
 import UserInfoContext from '../context/UserInfoContext';
 
@@ -8,7 +7,7 @@ function SideBar() {
   return (
     <div className="sidebar bg-blue-500 text-white p-4 text-center h-screen">
       <div className="logo text-center mb-4">
-        <img src="https://i.ibb.co/0FVRL61/Financial.png" alt="Logo" width={100} />
+        <img src="https://i.ibb.co/BrM33Cg/Design-sem-nome.png" className="ml-1 " alt="Logo" width={100} />
       </div>
       <div className="username text-center">
         <p>{userName}</p>
