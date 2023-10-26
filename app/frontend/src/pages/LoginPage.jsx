@@ -9,7 +9,9 @@ function Login() {
   const [error, setError] = useState('');
   const history = useHistory();
 
-  const { setUserId, setUserToken } = useContext(UserInfoContext);
+  const {
+    setUserId, setUserToken, setUserName,
+  } = useContext(UserInfoContext);
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
@@ -22,13 +24,14 @@ function Login() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const response = await callLoginApi(email, password);
-    console.log(response);
+
     if (response.message === 'User not found' || response.message === 'Invalid password') {
-      console.log('error');
       setError(response.message);
     } else {
       setUserId(response.userId);
       setUserToken(response.token);
+      console.log(response.userName);
+      setUserName(response.userName);
 
       history.push('/home');
     }

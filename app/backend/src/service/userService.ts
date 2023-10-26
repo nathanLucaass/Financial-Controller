@@ -25,6 +25,7 @@ export default class UserService {
 
   async login (email: string, password: string): Promise<Response> {
     const user = await UserModel.findOne({ where: { email } })
+    
 
     if (user == null) {
       return { status: 'error', data: { message: 'User not found' } }
@@ -34,6 +35,6 @@ export default class UserService {
     }
 
     const token = this.tokenManager.generateToken(email)
-    return { status: 'success', data: { userId: user?.dataValues.id, token } }
+    return { status: 'success', data: { userId: user?.dataValues.id, userName: user?.dataValues.username, token } }
   };
 };

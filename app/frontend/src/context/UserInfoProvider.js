@@ -3,6 +3,7 @@ import UserInfoContext from './UserInfoContext';
 
 function UserInfoProvider({ children }) {
   const [userId, setUserId] = useState(null);
+  const [userName, setUserName] = useState(null);
   const [userToken, setUserToken] = useState(null);
   const [bills, setBills] = useState(null);
   const [earnings, setEarnings] = useState(null);
@@ -10,7 +11,7 @@ function UserInfoProvider({ children }) {
 
   return (
     <UserInfoContext.Provider value={{
-      userId, setUserId, userToken, setUserToken, bills, setBills, isLoading, setIsLoading, earnings, setEarnings,
+      userId, setUserId, userToken, setUserToken, bills, setBills, isLoading, setIsLoading, earnings, setEarnings, userName, setUserName,
     }}
     >
       {children}
