@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import SideBar from '../components/SideBar';
-import getAllBills from '../services/billsService';
+import {getAllBills} from '../services/billsService';
 import getAllEarnings from '../services/earningsService';
 import UserInfoContext from '../context/UserInfoContext';
 import DailyResume from '../components/DailyResume';
@@ -25,10 +25,9 @@ function Home() {
   }, [setBills]);
 
   return (
-    <div className="relative bg-slate-100">
-      <h1 className='text-center text-4xl bg-white text-blue-500 shadow font-medium'>Visão Geral</h1>
-      <div className="flex relative">
+    <div className="flex relative bg-slate-100">
         <SideBar className="fixed h-full" />
+      <div className="flex relative">
         <div className="w-full p-4">
           <DailyResume />
         </div>

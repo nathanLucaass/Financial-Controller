@@ -42,7 +42,7 @@ function TotalResume() {
   const RADIAN = Math.PI / 180;
 
   return (
-    <div className="bg-white p-4 mx-auto border rounded shadow">
+    <div className="bg-white p-4 mx-auto w-96  border rounded shadow">
       {isLoading ? (
         <h1>Loading...</h1>
       ) : (

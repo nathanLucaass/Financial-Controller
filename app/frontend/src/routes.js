@@ -3,6 +3,7 @@ import { Route, Switch, BrowserRouter } from 'react-router-dom';
 import LoginPage from './pages/LoginPage';
 import HomePage from './pages/HomePage';
 import UserRegisterPage from './pages/UserRegisterPage';
+import BillsPage from './pages/BillsPage';
 
 function Routes() {
   return (
@@ -12,6 +13,7 @@ function Routes() {
           <Route exact path="/" component={LoginPage} />
           <Route exact path="/home" component={HomePage} />
           <Route exact path="/register" component={UserRegisterPage} />
+          <Route exact path="/bills" component={BillsPage} />
         </Switch>
       </React.StrictMode>
     </BrowserRouter>
