@@ -1,6 +1,6 @@
 export default interface IEarnings {
   id: number
-  date: Date
+  date: string
   description: string
   value: number
   user_id: number

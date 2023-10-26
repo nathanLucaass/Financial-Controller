@@ -6,7 +6,7 @@ interface Response {
 
 export default class BillService {
   // eslint-disable-next-line @typescript-eslint/naming-convention
-  async createBill (date: Date, description: string, value: number, user_id: number): Promise<Response> {
+  async createBill (date: string, description: string, value: number, user_id: number): Promise<Response> {
     const bill = await BillModel.create({
       date,
       description,

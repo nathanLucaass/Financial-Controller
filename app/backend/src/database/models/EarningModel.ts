@@ -9,7 +9,7 @@ import db from '.'
 
 export default class Earning extends Model<InferAttributes<Earning>, InferCreationAttributes<Earning>> {
   declare id: CreationOptional<number>
-  declare date: Date
+  declare date: string
   declare description: string
   declare value: number
   declare user_id: number
@@ -24,7 +24,7 @@ Earning.init({
   },
   date: {
     allowNull: false,
-    type: DataTypes.DATE
+    type: DataTypes.STRING
   },
   description: {
     allowNull: false,

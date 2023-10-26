@@ -9,7 +9,7 @@ import db from '.'
 
 export default class Bill extends Model<InferAttributes<Bill>, InferCreationAttributes<Bill>> {
   declare id: CreationOptional<number>
-  declare date: Date
+  declare date: string
   declare description: string
   declare value: number
   declare user_id: number
