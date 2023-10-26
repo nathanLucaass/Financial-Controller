@@ -1,7 +1,7 @@
-import UserInfoContext from "./UserInfoContext";
-import { useState } from "react";
+import { useState } from 'react';
+import UserInfoContext from './UserInfoContext';
 
-const UserInfoProvider = ({ children }) => {
+function UserInfoProvider({ children }) {
   const [userId, setUserId] = useState(null);
   const [userToken, setUserToken] = useState(null);
   const [bills, setBills] = useState(null);
@@ -9,10 +9,13 @@ const UserInfoProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true);
 
   return (
-    <UserInfoContext.Provider value={{ userId, setUserId, userToken, setUserToken, bills, setBills, isLoading, setIsLoading, earnings, setEarnings }}>
+    <UserInfoContext.Provider value={{
+      userId, setUserId, userToken, setUserToken, bills, setBills, isLoading, setIsLoading, earnings, setEarnings,
+    }}
+    >
       {children}
     </UserInfoContext.Provider>
   );
-};
+}
 
 export default UserInfoProvider;

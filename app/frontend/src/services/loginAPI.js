@@ -10,6 +10,6 @@ const callLoginAPI = async (email, password) => {
   const responseBody = await response.json();
 
   return responseBody;
-}
+};
 
 export default callLoginAPI;

@@ -12,7 +12,7 @@ export default {
       },
       date: {
         allowNull: false,
-        type: DataTypes.DATE
+        type: DataTypes.STRING
       },
       description: {
         allowNull: false,

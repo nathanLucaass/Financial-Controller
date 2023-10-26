@@ -12,7 +12,7 @@ exports.default = {
             },
             date: {
                 allowNull: false,
-                type: sequelize_1.DataTypes.DATE
+                type: sequelize_1.DataTypes.STRING
             },
             description: {
                 allowNull: false,
