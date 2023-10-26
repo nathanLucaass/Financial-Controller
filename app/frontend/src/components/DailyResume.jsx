@@ -50,7 +50,7 @@ function DailyResume() {
             <p className="font-semibold">
               Total da Entrada: R$
               {' '}
-              {totalEntrada}
+              {totalEntrada.toFixed(2)}
             </p>
             <ul>
               <li className="flex justify-between border-b py-2">
@@ -62,7 +62,7 @@ function DailyResume() {
                 <li key={bill.id} className="flex justify-between py-2">
                   <span>{bill.date}</span>
                   <span>{bill.description}</span>
-                  <span>{bill.value}</span>
+                  <span>{bill.value.toFixed(2)}</span>
                 </li>
               ))}
             </ul>
@@ -72,7 +72,7 @@ function DailyResume() {
             <p className="font-semibold">
               Total da Saída: R$
               {' '}
-              {totalSaida}
+              {totalSaida.toFixed(2)}
             </p>
             <ul>
               <li className="flex justify-between border-b py-2">

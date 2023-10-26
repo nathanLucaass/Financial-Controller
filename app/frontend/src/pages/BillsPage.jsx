@@ -7,6 +7,7 @@ function BillsPage() {
   const [unformattedDate, setUnformattedDate] = useState('');
   const [description, setDescription] = useState('');
   const [valueString, setValueString] = useState(0);
+  const [totalBills, setTotalBills] = useState(0);
 
   const { userId } = useContext(UserInfoContext);
   const { setIsLoading, setBills, bills } = useContext(UserInfoContext);
@@ -21,9 +22,14 @@ function BillsPage() {
       setIsLoadingBills(false);
       setIsLoading(false);
     }
-
+    getTotalBills();
     fetchData();
   }, [setBills]);
+
+  const getTotalBills = () => {
+    const total = bills.reduce((acc, curr) => acc + curr.value, 0);
+    setTotalBills(total);
+  };
 
   const handleDateChange = (event) => {
     setUnformattedDate(event.target.value);
@@ -65,6 +71,7 @@ function BillsPage() {
           </div>
         ) : (
           <div>
+            <h1 className='text-right text-3xl'>Entradas Totais: R${totalBills}</h1>
             <h1 className='text-3xl mb-3'>Nova Saida</h1>
             <form className="flex">
               <label htmlFor="date-input" className="block text-lg font-semibold mr-4">
@@ -122,7 +129,7 @@ function BillsPage() {
                   <tr key={bill.id}>
                     <td className="p-2 border">{bill.date}</td>
                     <td className="p-2 border">{bill.description}</td>
-                    <td className="p-2 border">R$ {bill.value}</td>
+                    <td className="p-2 border">R$ {bill.value.toFixed(2)}</td>
                   </tr>
                 ))}
               </tbody>
