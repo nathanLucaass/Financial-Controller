@@ -37,7 +37,7 @@ function DailyResume() {
   }
 
   return (
-    <div className="bg-white p-4 max-w-md mx-auto border rounded shadow">
+    <div className="bg-white p-4 mx-auto border rounded shadow">
       {isLoading ? (
         <h1>Loading...</h1>
       ) : (

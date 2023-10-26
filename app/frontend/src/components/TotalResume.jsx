@@ -28,7 +28,7 @@ function TotalResume() {
     const x = cx + radius * Math.cos(-midAngle * RADIAN);
     const y = cy + radius * Math.sin(-midAngle * RADIAN);
   
-    const xOffset = (x - cx) * -0.2;
+    const xOffset = (x - cx) * -0.2
     const yOffset = (y - cy) * -0.2;
   
     return (
@@ -42,7 +42,7 @@ function TotalResume() {
   const RADIAN = Math.PI / 180;
 
   return (
-    <div className="bg-white p-4 max-w-md mx-auto border rounded shadow">
+    <div className="bg-white p-4 mx-auto border rounded shadow">
       {isLoading ? (
         <h1>Loading...</h1>
       ) : (
