@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import SideBar from '../components/SideBar';
-import {getAllBills} from '../services/billsService';
-import getAllEarnings from '../services/earningsService';
+import { getAllBills } from '../services/billsService';
+import { getAllEarnings } from '../services/earningsService';
 import UserInfoContext from '../context/UserInfoContext';
 import DailyResume from '../components/DailyResume';
 import TotalResume from '../components/TotalResume';

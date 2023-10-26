@@ -1,29 +1,29 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { getAllBills, postBill } from '../services/billsService';
 import UserInfoContext from '../context/UserInfoContext';
 import SideBar from '../components/SideBar';
+import {getAllEarnings, postEarning} from '../services/earningsService';
 
-function BillsPage() {
+function EarningsPage() {
   const [unformattedDate, setUnformattedDate] = useState('');
   const [description, setDescription] = useState('');
   const [valueString, setValueString] = useState(0);
 
   const { userId } = useContext(UserInfoContext);
-  const { setIsLoading, setBills, bills } = useContext(UserInfoContext);
+  const { setIsLoading, earnings , setEarnings  } = useContext(UserInfoContext);
   const [isLoadingBills, setIsLoadingBills] = useState(true);
 
   useEffect(() => {
     setIsLoading(true);
 
     async function fetchData() {
-      const responseBills = await getAllBills(userId);
-      setBills(responseBills);
+      const responseBills = await getAllEarnings(userId);
+      setEarnings(responseBills);
       setIsLoadingBills(false);
       setIsLoading(false);
     }
 
     fetchData();
-  }, [setBills]);
+  }, [setEarnings]);
 
   const handleDateChange = (event) => {
     setUnformattedDate(event.target.value);
@@ -45,12 +45,13 @@ function BillsPage() {
     const date = formatDateToDDMMYYYY(unformattedDate);
     const user_id = userId;
     const value = Number(valueString);
-    const response = await postBill(date, description, value, user_id);
+    const response = await postEarning(date, description, value, user_id);
     console.log(response);
     setIsLoadingBills(true);
-    const responseBills = await getAllBills(userId);
-    setBills(responseBills);
+    const responseBills = await getAllEarnings(userId);
+    setEarnings(responseBills);
     setIsLoadingBills(false);
+    
   };
 
   return (
@@ -118,11 +119,11 @@ function BillsPage() {
                 </tr>
               </thead>
               <tbody>
-                {bills.map((bill) => (
-                  <tr key={bill.id}>
-                    <td className="p-2 border">{bill.date}</td>
-                    <td className="p-2 border">{bill.description}</td>
-                    <td className="p-2 border">R$ {bill.value}</td>
+                {earnings.map((earning) => (
+                  <tr key={earning.id}>
+                    <td className="p-2 border">{earning.date}</td>
+                    <td className="p-2 border">{earning.description}</td>
+                    <td className="p-2 border">R$ {earning.value}</td>
                   </tr>
                 ))}
               </tbody>
@@ -135,4 +136,4 @@ function BillsPage() {
   );
 }
 
-export default BillsPage;
+export default EarningsPage;

@@ -6,9 +6,6 @@ const getAllBills = async (idUser) => {
 
 
 const postBill = async (date, description, value, user_id) => {
-  console.log(date);
-  console.log(description);
-  console.log(value);
   const response = await fetch('http://localhost:3001/bill/new', {
     method: 'POST',
     headers: {

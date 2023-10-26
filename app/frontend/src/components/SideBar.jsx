@@ -17,7 +17,7 @@ function SideBar() {
       <nav className="navbar mt-4 text-left">
         <ul>
           <li><a onClick={()=> history.push('/home')} className="block py-2 hover:bg-blue-600 text-xl ">Home</a></li>
-          <li><a href="#" className="block py-2 hover:bg-blue-600 text-xl	">Entrada</a></li>
+          <li><a onClick={()=> history.push('/earnings')} className="block py-2 hover:bg-blue-600 text-xl	">Entrada</a></li>
           <li><a onClick={()=> history.push('/bills')} className="block py-2 hover:bg-blue-600 text-xl	">Saida</a></li>
           <li><a href="#" className="block py-2 hover:bg-blue-600 text-xl	">Page 4</a></li>
         </ul>
