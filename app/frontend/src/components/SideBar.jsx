@@ -7,11 +7,11 @@ function SideBar() {
   const history = useHistory();
 
   return (
-    <div className="sidebar bg-blue-500 text-white p-4 text-center h-screen overflow-y-auto	 overflow-y-auto">
-      <div className="logo text-center mb-4">
-        <img src="https://i.ibb.co/BrM33Cg/Design-sem-nome.png" className="ml-1 " alt="Logo" width={100} />
+    <div className="sidebar bg-blue-500 text-white text-center h-screen overflow-y-auto	 overflow-y-auto">
+      <div className="logo text-center flex justify-center items-center mb-4">
+        <img src="https://i.ibb.co/BrM33Cg/Design-sem-nome.png" className="m-1 " alt="Logo" width={76} />
       </div>
-      <div className="username text-left mb-10">
+      <div className="username text-left mb-10 mt-10 ml-1 mr-1">
         <p className='text-xl'>Olá</p>
         <p className='text-2xl'>{userName}</p>
       </div>
