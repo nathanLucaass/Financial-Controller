@@ -62,78 +62,96 @@ function BillsPage() {
   return (
     <div className='flex relative bg-slate-100'>
       <SideBar className='fixed h-full'/>
-    <div className="bg-white p-4 mx-auto border rounded shadow text-center flex">  
-      <div className="flex-1">
-        <h2 className="text-3xl font-semibold mb-5">Saida</h2>
+    <div className="bg-white mt-3 mx-auto border rounded-md shadow-2xl text-center flex">  
+      <div className="flex-1 rounded">
+        <h2 className="text-3xl p-1 font-semibold mb-5 bg-blue-500 pt text-white shadow rounded-t-md ">Saida</h2>
         {isLoadingBills ? (
           <div className="text-center mt-4">
             <h2 className="text-xl font-semibold">Carregando...</h2>
           </div>
         ) : (
-          <div>
-            <h1 className='text-right text-3xl'>Entradas Totais: R${totalBills}</h1>
-            <h1 className='text-3xl mb-3'>Nova Saida</h1>
-            <form className="flex">
-              <label htmlFor="date-input" className="block text-lg font-semibold mr-4">
-                Data:
-                <input
-                  id="date-input"
-                  className="ml-2 p-2 border rounded"
-                  type="date"
-                  value={unformattedDate}
-                  onChange={handleDateChange}
-                />
-              </label>
+          <div className='p-4'>
+            <div className='p-4 rounded-lg'>
+              <h1 className='text-right text-3xl'>
+                <span className='border border-blue-500 p-1 bg-blue-500 text-white rounded-l-md'> Total:</span>
+                <span className='border border-blue-500 p-1 rounded-r-md'>
+                  R$:{totalBills.toFixed(2)}
+                </span>
+              </h1>
+            </div> 
+            <div>
+                <div className='shadow-lg rounded'>
+                <h1 className='text-3xl text-blue-500 font-medium rounded-t '>Nova Saida</h1>
+                <form className="p-4 bg-white rounded-lg flex space-x-4">
+  <div className="flex-1">
+  <label htmlFor="date-input" className="block rounded-t-lg bg-blue-500 text-lg font-semibold text-white">      Data:
+    </label>
+    <input
+      id="date-input"
+      className="w-full px-4 py-3 border shadow rounded-b-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+      type="date"
+      value={unformattedDate}
+      onChange={handleDateChange}
+    />
+  </div>
+  
+  <div className="flex-1">
+    <label htmlFor="description-input" className="block rounded-t-lg bg-blue-500 text-lg font-semibold text-white">
+      Descrição:
+    </label>
+    <input
+      id="description-input"
+      className="w-full px-4 py-3 border shadow rounded-b-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+      type="text"
+      value={description}
+      onChange={handleDescriptionChange}
+    />
+  </div>
+  
+  <div className="flex-1">
+    <label htmlFor="value-input" className="block rounded-t-lg bg-blue-500 text-lg font-semibold text-white">
+      Valor:
+    </label>
+    <input
+      id="value-input"
+      className="w-full px-4 py-3 shadow border rounded-b-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+      type="number"
+      value={valueString}
+      onChange={handleValueChange}
+    />
+  </div>
+  
+  <button
+    className="bg-blue-500 text-white px-4 py-3 rounded-lg focus:outline-none focus:ring focus:ring-blue-300"
+    type="submit"
+    onClick={handleSubmit}
+  >
+    Enviar
+  </button>
+</form>
 
-              <label htmlFor="description-input" className="block text-lg font-semibold mr-4">
-                Descrição:
-                <input
-                  id="description-input"
-                  className="ml-2 p-2 border rounded"
-                  type="text"
-                  value={description}
-                  onChange={handleDescriptionChange}
-                />
-              </label>
-
-              <label htmlFor="value-input" className="block text-lg font-semibold mr-4">
-                Valor:
-                <input
-                  id="value-input"
-                  className="ml-2 p-2 border rounded"
-                  type="number"
-                  value={valueString}
-                  onChange={handleValueChange}
-                />
-              </label>
-
-              <button
-                className="ml-4 bg-blue-500 text-white p-2 rounded"
-                type="submit"
-                onClick={handleSubmit}
-              >
-                Enviar
-              </button>
-            </form>
-
-            <table className="w-full mt-4">
-              <thead>
-                <tr>
-                  <th className="p-2 border font-semibold">Date</th>
-                  <th className="p-2 border font-semibold">Description</th>
-                  <th className="p-2 border font-semibold">Value</th>
-                </tr>
-              </thead>
-              <tbody>
-                {bills.map((bill) => (
-                  <tr key={bill.id}>
-                    <td className="p-2 border">{bill.date}</td>
-                    <td className="p-2 border">{bill.description}</td>
-                    <td className="p-2 border">R$ {bill.value.toFixed(2)}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+                </div>
+                <div className="relative overflow-x-auto shadow-xl sm:rounded-lg mt-5 pb-4">
+                <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                  <thead className="text-xs text-white uppercase bg-blue-500 ">
+                    <tr>
+                      <th scope="col" className="px-6 py-3">Date</th>
+                      <th scope="col" className="px-6 py-3">Descrição</th>
+                      <th scope="col" className="px-6 py-3">Valor</th>
+                    </tr>
+                  </thead>
+                  <tbody className='text-2xl'>
+                    {bills.map((bill) => (
+                      <tr key={bill.id} className="bg-white border-b border-blue-500">
+                        <td scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">{bill.date}</td>
+                        <td scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">{bill.description}</td>
+                        <td scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">R$ {bill.value.toFixed(2)}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+                </div>
+              </div>
           </div>
         )}
       </div>
