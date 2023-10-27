@@ -26,7 +26,7 @@ class UserService {
             return { status: 'error', data: { message: 'Invalid password' } };
         }
         const token = this.tokenManager.generateToken(email);
-        return { status: 'success', data: { userId: user === null || user === void 0 ? void 0 : user.dataValues.id, token } };
+        return { status: 'success', data: { userId: user === null || user === void 0 ? void 0 : user.dataValues.id, userName: user === null || user === void 0 ? void 0 : user.dataValues.username, token } };
     }
     ;
 }

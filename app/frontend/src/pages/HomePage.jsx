@@ -20,7 +20,6 @@ function Home() {
       setEarnings(responseEarnings);
       setIsLoading(false);
     }
-
     fetchData();
   }, [setBills]);
 

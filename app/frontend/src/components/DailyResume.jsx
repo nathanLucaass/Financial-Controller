@@ -34,6 +34,8 @@ function DailyResume() {
     totalEntrada = calculateTotal(todayBills);
     totalSaida = calculateTotal(todayEarnings);
     saldo = totalEntrada - totalSaida;
+    console.log(todayEarnings);
+    console.log(todayBills);
   }
 
   return (
