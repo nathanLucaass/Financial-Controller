@@ -1,6 +1,6 @@
-import React, { useContext } from 'react';
-import UserInfoContext from '../context/UserInfoContext';
-import { useHistory } from 'react-router-dom';
+import React, { useContext } from "react";
+import UserInfoContext from "../context/UserInfoContext";
+import { useHistory } from "react-router-dom";
 
 function SideBar() {
   const { userName } = useContext(UserInfoContext);
@@ -23,7 +23,7 @@ function SideBar() {
         <ul>
           <li>
             <a
-              onClick={() => history.push('/home')}
+              onClick={() => history.push("/home")}
               className="block py-2 px-4 rounded-full text-lg hover:bg-blue-600 hover:transition hover:duration-300 cursor-pointer my-2"
             >
               Home
@@ -31,7 +31,7 @@ function SideBar() {
           </li>
           <li>
             <a
-              onClick={() => history.push('/earnings')}
+              onClick={() => history.push("/earnings")}
               className="block py-2 px-4 rounded-full text-lg hover:bg-blue-600 hover:transition hover:duration-300 cursor-pointer my-2"
             >
               Entrada
@@ -39,7 +39,7 @@ function SideBar() {
           </li>
           <li>
             <a
-              onClick={() => history.push('/bills')}
+              onClick={() => history.push("/bills")}
               className="block py-2 px-4 rounded-full text-lg hover:bg-blue-600 hover:transition hover:duration-300 cursor-pointer my-2"
             >
               Saída
@@ -47,7 +47,7 @@ function SideBar() {
           </li>
           <li>
             <a
-              onClick={() => history.push('/')}
+              onClick={() => history.push("/")}
               className="block py-2 px-4 rounded-full text-lg hover:bg-blue-600 hover:transition hover:duration-300 cursor-pointer my-2"
             >
               Logoff
