@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from "react";
 import UserInfoContext from "../context/UserInfoContext";
 import SideBar from "../components/SideBar";
 import { getAllEarnings, postEarning } from "../services/earningsService";
-import { Last7DaysBalance } from "../services/Last7DaysBallance";
 
 function EarningsPage() {
   const [unformattedDate, setUnformattedDate] = useState("");
@@ -21,8 +20,6 @@ function EarningsPage() {
       const responseBills = await getAllEarnings(userId);
       setEarnings(responseBills);
       setIsLoadingBills(false);
-      const last7 = await Last7DaysBalance(userId);
-      console.log(last7);
       setIsLoading(false);
     }
 

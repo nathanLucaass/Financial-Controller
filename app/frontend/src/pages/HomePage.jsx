@@ -5,6 +5,7 @@ import { getAllEarnings } from '../services/earningsService';
 import UserInfoContext from '../context/UserInfoContext';
 import DailyResume from '../components/DailyResume';
 import TotalResume from '../components/TotalResume';
+import Last7DaysResume from '../components/Last7DaysResume';
 
 function Home() {
   const { userId } = useContext(UserInfoContext);
@@ -32,6 +33,9 @@ function Home() {
         </div>
         <div className="w-full p-4">
           <TotalResume />
+        </div>
+        <div>
+          <Last7DaysResume />
         </div>
       </div>
     </div>
