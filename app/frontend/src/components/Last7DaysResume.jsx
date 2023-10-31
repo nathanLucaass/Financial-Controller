@@ -1,74 +1,45 @@
-import React  from 'react';
-import { BarChart, Bar,  XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-import { useEffect, useState, useContext } from 'react';
-import { Last7DaysBalance } from '../services/Last7DaysBallance';
-import UserInfoContext from '../context/UserInfoContext';
+import React, { useContext, useEffect, useState } from "react";
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+} from "recharts";
+import UserInfoContext from "../context/UserInfoContext";
+import { Last7DaysBalance } from "../services/Last7DaysBallance";
 
-function Last7DaysResume() {
-  const [last7DaysBalance, setLast7DaysBalance] = useState([]);
+const Example = () => {
   const { userId } = useContext(UserInfoContext);
-  const data = [
-    {
-      name: 'Page A',
-      uv: 4000,
-      pv: 2400,
-      amt: 2400,
-    },
-    {
-      name: 'Page B',
-      uv: 3000,
-      pv: 1398,
-      amt: 2210,
-    },
-    {
-      name: 'Page C',
-      uv: 2000,
-      pv: 9800,
-      amt: 2290,
-    },
-    {
-      name: 'Page D',
-      uv: 2780,
-      pv: 3908,
-      amt: 2000,
-    },
-    {
-      name: 'Page E',
-      uv: 1890,
-      pv: 4800,
-      amt: 2181,
-    },
-    {
-      name: 'Page F',
-      uv: 2390,
-      pv: 3800,
-      amt: 2500,
-    },
-    {
-      name: 'Page G',
-      uv: 3490,
-      pv: 4300,
-      amt: 2100,
-    },
-  ];
+  const [ lest7DaysBalance, setLest7DaysBalance ] = useState([]);
 
-  console.log(last7DaysBalance);
   useEffect(() => {
-    async function fetchData() {
+    const fetchData = async () => {
       const response = await Last7DaysBalance(userId);
-      setLast7DaysBalance(response);
-    }
-
+      console.log(response);
+      setLest7DaysBalance(response);
+    };
     fetchData();
-  },[setLast7DaysBalance]);
+  }, [setLest7DaysBalance]);
+  console.log(lest7DaysBalance);
+
+  const dataTotal = Object.entries(lest7DaysBalance).map(([date, value]) => ({
+    name: date,
+    total: value,
+  }));
+  console.log(dataTotal);
+
   return (
     <div>
-      <h1>Hello</h1>
-      <ResponsiveContainer width="100%" height="100%">
+      <div className="text-center mb-4">
+        <h2 className="text-2xl font-semibold">Balanço Geral</h2>
+      </div>
+      <ResponsiveContainer width={400} height={300}>
         <BarChart
-          width={500}
-          height={300}
-          data={data}
+          data={dataTotal}
           margin={{
             top: 20,
             right: 30,
@@ -81,12 +52,11 @@ function Last7DaysResume() {
           <YAxis />
           <Tooltip />
           <Legend />
-          <Bar dataKey="pv" stackId="a" fill="#8884d8" />
-          <Bar dataKey="uv" stackId="a" fill="#82ca9d" />
+          <Bar dataKey="total" stackId="a" fill="#8884d8" />
         </BarChart>
       </ResponsiveContainer>
     </div>
   );
-}
+};
 
-export default Last7DaysResume;
+export default Example;
