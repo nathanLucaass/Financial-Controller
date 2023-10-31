@@ -7,7 +7,7 @@ function SideBar() {
   const history = useHistory();
 
   return (
-    <div className="sidebar bg-blue-500 text-white h-screen overflow-y-auto">
+    <div className="sidebar bg-blue-500 text-white text-center h-screen overflow-y-auto">
       <div className="logo text-center my-8 flex justify-center items-center">
         <img
           src="https://i.ibb.co/BrM33Cg/Design-sem-nome.png"
@@ -24,7 +24,7 @@ function SideBar() {
           <li>
             <a
               onClick={() => history.push("/home")}
-              className="block py-2 px-4 rounded-full text-lg hover:bg-blue-600 hover:transition hover:duration-300 hover:bg-white hover:text-blue-500 cursor-pointer my-2"
+              className="block py-2 px-4 text-lg hover:bg-blue-600 hover:transition hover:duration-300 hover:bg-white hover:text-blue-500 cursor-pointer my-2"
             >
               Home
             </a>
@@ -32,7 +32,7 @@ function SideBar() {
           <li>
             <a
               onClick={() => history.push("/earnings")}
-              className="block py-2 px-4 rounded-full text-lg hover:bg-blue-600 hover:transition hover:duration-300 hover:bg-white hover:text-blue-500 cursor-pointer my-2"
+              className="block py-2 px-4 text-lg hover:bg-blue-600 hover:transition hover:duration-300 hover:bg-white hover:text-blue-500 cursor-pointer my-2"
             >
               Entrada
             </a>
@@ -40,7 +40,7 @@ function SideBar() {
           <li>
             <a
               onClick={() => history.push("/bills")}
-              className="block py-2 px-4 rounded-full text-lg hover:bg-blue-600 hover:transition hover:duration-300 hover:bg-white hover:text-blue-500 cursor-pointer my-2"
+              className="block py-2 px-4 text-lg hover:bg-blue-600 hover:transition hover:duration-300 hover:bg-white hover:text-blue-500 cursor-pointer my-2"
             >
               Saída
             </a>
@@ -48,7 +48,7 @@ function SideBar() {
           <li>
             <a
               onClick={() => history.push("/")}
-              className="block py-2 px-4 rounded-full text-lg hover:bg-blue-600 hover:transition hover:duration-300 hover:bg-white hover:text-blue-500 cursor-pointer my-2"
+              className="block py-2 px-4 text-lg hover:bg-blue-600 hover:transition hover:duration-300 hover:bg-white hover:text-blue-500 cursor-pointer my-2"
             >
               Logoff
             </a>

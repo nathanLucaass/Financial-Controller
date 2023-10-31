@@ -26,15 +26,13 @@ function Home() {
 
   return (
     <div className="flex relative bg-slate-100">
-        <SideBar className="fixed h-full" />
-      <div className="flex relative">
-        <div className="w-full p-4">
+      <SideBar className="fixed h-full"/>
+      <div className="flex relative " style={{ flexDirection: 'column' }}>
+        <div className=" flex w-full p-4">
           <DailyResume />
-        </div>
-        <div className="w-full p-4">
           <TotalResume />
         </div>
-        <div className='w-full p-4 w-96'>
+        <div className='w-full p-4 flex items-center justify-center'>
           <Example />
         </div>
       </div>

@@ -54,7 +54,7 @@ function TotalResume() {
   const RADIAN = Math.PI / 180;
 
   return (
-    <div className="bg-white p-4 mx-auto w-96  border rounded shadow">
+    <div className="bg-white p-4 mx-auto  border rounded shadow">
       {isLoading ? (
         <h1>Loading...</h1>
       ) : (
@@ -69,7 +69,7 @@ function TotalResume() {
           </div>
         </main>
       )}
-      <ResponsiveContainer width="100%" height={400}>
+      <ResponsiveContainer width={350} height={300}>
         <PieChart>
           <Pie
             data={data}

@@ -8,13 +8,14 @@ import {
   Tooltip,
   Legend,
   ResponsiveContainer,
+  ReferenceLine,
 } from "recharts";
 import UserInfoContext from "../context/UserInfoContext";
 import { Last7DaysBalance } from "../services/Last7DaysBallance";
 
 const Example = () => {
   const { userId } = useContext(UserInfoContext);
-  const [ lest7DaysBalance, setLest7DaysBalance ] = useState([]);
+  const [lest7DaysBalance, setLest7DaysBalance] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -33,11 +34,11 @@ const Example = () => {
   console.log(dataTotal);
 
   return (
-    <div>
+    <div className="bg-white p-4 mx-auto border rounded shadow">
       <div className="text-center mb-4">
-        <h2 className="text-2xl font-semibold">Balanço Geral</h2>
+        <h2 className="text-2xl font-semibold">Resumo dos últimos sete dias</h2>
       </div>
-      <ResponsiveContainer width={400} height={300}>
+      <ResponsiveContainer width={800} height={300}>
         <BarChart
           data={dataTotal}
           margin={{
@@ -52,7 +53,8 @@ const Example = () => {
           <YAxis />
           <Tooltip />
           <Legend />
-          <Bar dataKey="total" stackId="a" fill="#8884d8" />
+          <Bar dataKey="total" stackId="a" fill="#3B82F6" />
+          <ReferenceLine y={0} stroke="black"/>
         </BarChart>
       </ResponsiveContainer>
     </div>
