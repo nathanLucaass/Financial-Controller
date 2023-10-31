@@ -25,9 +25,9 @@ function Home() {
   }, [setBills]);
 
   return (
-    <div className="flex relative bg-slate-100">
+    <div className="flex relative bg-slate-100 mx-auto">
       <SideBar className="fixed h-full"/>
-      <div className="flex relative " style={{ flexDirection: 'column' }}>
+      <div className="flex relative mx-auto" style={{ flexDirection: 'column' }}>
         <div className=" flex w-full p-4">
           <DailyResume />
           <TotalResume />
