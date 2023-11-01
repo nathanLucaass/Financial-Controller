@@ -37,23 +37,25 @@ function DailyResume() {
   }
 
   return (
-    <div className="bg-white p-4 mx-auto w-96 border rounded shadow">
+    <div className="bg-white mx-auto w-96 border rounded-t-lg shadow">
       {isLoading ? (
         <h1>Loading...</h1>
       ) : (
         <main>
-          <div className="text-center mb-4">
-            <h2 className="text-2xl font-semibold">Resumo Diário</h2>
+          <div className="text-center rounded-t-lg bg-blue-500 text-white p-0 mb-4">
+            <h2 className="text-2xl font-semibold ">Resumo Diário</h2>
           </div>
-          <div>
+          <div className='p-4'>
             <h2 className="text-lg font-semibold">Entrada</h2>
-            <p className="font-semibold">
+            <p className="font-semibold text-center">
               Total da Entrada: R$
               {' '}
+              <span className='text-red-500'>
               {totalEntrada.toFixed(2)}
+              </span>
             </p>
             <ul>
-              <li className="flex justify-between border-b py-2">
+              <li className="flex justify-between border-b bg py-2">
                 <span>Data</span>
                 <span>Descrição</span>
                 <span>Valor</span>
@@ -67,12 +69,14 @@ function DailyResume() {
               ))}
             </ul>
           </div>
-          <div className="mt-4">
+          <div className="mt-4 p-4 ">
             <h2 className="text-lg font-semibold">Saída</h2>
-            <p className="font-semibold">
+            <p className="font-semibold text-center">
               Total da Saída: R$
               {' '}
+              <span className='text-green-500'>
               {totalSaida.toFixed(2)}
+              </span>
             </p>
             <ul>
               <li className="flex justify-between border-b py-2">
@@ -84,7 +88,7 @@ function DailyResume() {
                 <li key={earning.id} className="flex justify-between py-2">
                   <span>{earning.date}</span>
                   <span>{earning.description}</span>
-                  <span>
+                  <span className='text-red'>
                     R$
                     {' '}
                     {earning.value.toFixed(2)}
@@ -93,12 +97,13 @@ function DailyResume() {
               ))}
             </ul>
           </div>
-          <div className="mt-4">
-            <h2 className="text-lg font-semibold">Saldo</h2>
-            <p className="font-semibold">
-              Saldo: R$
+          <div className="mt-4 rounded-l p-4">
+            <p className="text-lg font-semibold border border-blue-500 w-3/5 rounded-l">
+              <span className='bg-blue-500 p-1 text-white rounded-l'>
+              Saldo:
+              </span>
               {' '}
-              {saldo.toFixed(2)}
+              R$ {saldo.toFixed(2)}
             </p>
           </div>
         </main>

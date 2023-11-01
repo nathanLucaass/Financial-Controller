@@ -68,7 +68,7 @@ function BillsPage() {
         </h1>
         <form>
           <div className="mb-4">
-            <label htmlFor="date-input" className="block text-lg font-semibold text-blue-500">
+            <label htmlFor="date-input" className="block text-lg font-semibold text-white bg-blue-500 rounded-t-lg">
               Data:
             </label>
             <input
@@ -81,7 +81,7 @@ function BillsPage() {
           </div>
 
           <div className="mb-4">
-            <label htmlFor="description-input" className="block text-lg font-semibold text-blue-500">
+            <label htmlFor="description-input" className="block text-white bg-blue-500 rounded-t-lg text-lg font-semibold text-blue-500">
               Descrição:
             </label>
             <input
@@ -94,7 +94,7 @@ function BillsPage() {
           </div>
 
           <div className="mb-4">
-            <label htmlFor="value-input" className="block text-lg font-semibold text-blue-500">
+            <label htmlFor="value-input" className="block text-white bg-blue-500 rounded-t-lg text-lg font-semibold text-blue-500">
               Valor:
             </label>
             <input
@@ -127,11 +127,11 @@ function BillsPage() {
             </div>
           ) : (
             <div>
-              <div className="relative overflow-x-auto text-center sm:rounded-lg mt-3 pb-4">
+              <div className="relative overflow-x-auto text-center mt-3 pb-4">
                 <table className="w-full font text-xl text-gray-500 dark:text-gray-400">
                   <thead className="bg-blue-500 text-white">
                     <tr>
-                      <th scope="col" className="px-6 py-3">
+                      <th scope="col" className="px-6 py-3 ">
                         Data
                       </th>
                       <th scope="col" className="px-6 py-3">
@@ -158,7 +158,7 @@ function BillsPage() {
                     ))}
                   </tbody>
                 </table>
-                <div className="p-4 rounded-lg">
+                <div className="p-4 mt-4 rounded-lg">
                   <h1 className="text-right text-3xl">
                     <span className="border shadow-2xl border-blue-500 p-1 bg-blue-500 text-white rounded-l-md">
                       Total:
