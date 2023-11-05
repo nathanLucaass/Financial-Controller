@@ -54,23 +54,29 @@ function TotalResume() {
   const RADIAN = Math.PI / 180;
 
   return (
-    <div className="bg-white p-4 mx-auto  border rounded shadow">
+    <div className="bg-white mx-auto rounded-t-lg shadow">
       {isLoading ? (
         <h1>Loading...</h1>
       ) : (
-        <main className="border-b py-2">
-          <div className="text-center mb-4">
-            <h2 className="text-2xl font-semibold">Balanço Geral</h2>
+            <div className="">
+              <h2 className="text-2xl font-semibold rounded-t-lg text-center text-white bg-blue-500">Balanço Geral</h2><main >
+            <div className="text-center mb-4">
+            </div>
+            <div className="p-2 rounded">
+              <h2 className="text-lg font-semibold border border-blue-500 w-3/5 rounded-l">
+                <span className="bg-blue-500 p-1 text-white rounded-l">
+                Saldo:
+                </span>
+                {' '}
+                 R$ {saldo.toFixed(2)}
+              </h2>
+            </div>
+          </main>
           </div>
-          <div className="mt-4">
-            <h2 className="text-lg font-semibold">
-              Saldo: R$ {saldo.toFixed(2)}
-            </h2>
-          </div>
-        </main>
       )}
-      <ResponsiveContainer width={350} height={300}>
-        <PieChart>
+      <div className="p-4">
+      <ResponsiveContainer className="mt-3 border-t border-blue-500 py-2" width={350} height={300}>
+        <PieChart className="mt-2">
           <Pie
             data={data}
             cx="50%"
@@ -90,6 +96,7 @@ function TotalResume() {
           </Pie>
         </PieChart>
       </ResponsiveContainer>
+      </div>
     </div>
   );
 }

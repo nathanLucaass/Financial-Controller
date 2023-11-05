@@ -34,8 +34,8 @@ const Example = () => {
   console.log(dataTotal);
 
   return (
-    <div className="bg-white p-4 mx-auto border rounded shadow">
-      <div className="text-center mb-4">
+    <div className="bg-white mx-auto border rounded shadow">
+      <div className="text-center bg-blue-500 text-white rounded-t-lg mb-4">
         <h2 className="text-2xl font-semibold">Resumo dos últimos sete dias</h2>
       </div>
       <ResponsiveContainer width={800} height={300}>

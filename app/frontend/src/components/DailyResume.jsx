@@ -46,16 +46,16 @@ function DailyResume() {
             <h2 className="text-2xl font-semibold ">Resumo Diário</h2>
           </div>
           <div className='p-4'>
-            <h2 className="text-lg font-semibold">Entrada</h2>
-            <p className="font-semibold text-center">
+            <h2 className="text-2xl mb-2 font-semibold">Entrada</h2>
+            <p className="font-semibold text-lg text-center">
               Total da Entrada: R$
               {' '}
-              <span className='text-red-500'>
+              <span className='text-green-500'>
               {totalEntrada.toFixed(2)}
               </span>
             </p>
             <ul>
-              <li className="flex justify-between border-b bg py-2">
+              <li className="flex justify-between border-b border-blue-500 bg py-2">
                 <span>Data</span>
                 <span>Descrição</span>
                 <span>Valor</span>
@@ -70,16 +70,16 @@ function DailyResume() {
             </ul>
           </div>
           <div className="mt-4 p-4 ">
-            <h2 className="text-lg font-semibold">Saída</h2>
-            <p className="font-semibold text-center">
+            <h2 className="text-2xl mb-2 font-semibold">Saída</h2>
+            <p className="font-semibold text-lg text-center">
               Total da Saída: R$
               {' '}
-              <span className='text-green-500'>
+              <span className='text-red-500'>
               {totalSaida.toFixed(2)}
               </span>
             </p>
             <ul>
-              <li className="flex justify-between border-b py-2">
+              <li className="flex justify-between border-b border-blue-500 py-2">
                 <span>Data</span>
                 <span>Descrição</span>
                 <span>Valor</span>
