@@ -68,17 +68,24 @@ function EarningsPage() {
       <SideBar className="fixed h-full" />
       <div className="bg-white p-4 mx-auto border rounded shadow text-center flex">
         <div className="flex-1">
-          <h2 className="text-3xl font-semibold mb-5">Entrada</h2>
+          <h2 className="text-4xl text-blue-500 font-semibold mb-5">Entrada</h2>
           {isLoadingBills ? (
             <div className="text-center mt-4">
               <h2 className="text-xl font-semibold">Carregando...</h2>
             </div>
           ) : (
             <div>
-              <h1 className="text-right text-3xl">
-                Entradas Totais: R${totalEarnings}
+              <h1 className="text-lg font-semibold border border-blue-500 w-1/5 rounded-l  ">
+                <span className="bg-blue-500 p-1 text-white rounded-l">
+                Entradas Totais:
+                </span>
+                {' '}
+                <span className=" focus:ring-blue-500">
+                 R${totalEarnings.toFixed(2)}
+                 </span>
               </h1>
-              <h1 className="text-3xl mb-3">Nova Entrada</h1>
+              <div className="border-blue-500 mt-3">
+              <h1 className="text-3xl bg-blue-500 text-white rounded-t-lg mb-5">Nova Entrada</h1>
               <form className="flex">
                 <label
                   htmlFor="date-input"
@@ -130,13 +137,13 @@ function EarningsPage() {
                   Enviar
                 </button>
               </form>
-
-              <table className="w-full mt-4">
-                <thead>
-                  <tr>
-                    <th className="p-2 border font-semibold">Date</th>
-                    <th className="p-2 border font-semibold">Description</th>
-                    <th className="p-2 border font-semibold">Value</th>
+              </div>
+              <table className="w-full mt-4 rounded-t-lg">
+                <thead >
+                  <tr className="bg-blue-500 text-white ">
+                    <th className="p-2 border text-2xl font-semibold">Data</th>
+                    <th className="p-2 border text-2xl font-semibold">Descrição</th>
+                    <th className="p-2 border text-2xl font-semibold">Valor</th>
                   </tr>
                 </thead>
                 <tbody>
