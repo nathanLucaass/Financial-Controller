@@ -75,21 +75,12 @@ function EarningsPage() {
             </div>
           ) : (
             <div>
-              <h1 className="text-lg font-semibold border border-blue-500 w-1/5 rounded-l  ">
-                <span className="bg-blue-500 p-1 text-white rounded-l">
-                Entradas Totais:
-                </span>
-                {' '}
-                <span className=" focus:ring-blue-500">
-                 R${totalEarnings.toFixed(2)}
-                 </span>
-              </h1>
-              <div className="border-blue-500 mt-3">
-              <h1 className="text-3xl bg-blue-500 text-white rounded-t-lg mb-5">Nova Entrada</h1>
-              <form className="flex">
+              <div className="border-blue-500 mt-3 ">
+              <h1 className="text-4xl bg-blue-500 text-white rounded-t-lg ">Nova Entrada</h1>
+              <form className="flex shadow rounded-b border p-1 focus:ring-blue-500">
                 <label
                   htmlFor="date-input"
-                  className="block text-lg font-semibold mr-4"
+                  className="block text-lg mt-2 font-semibold mr-4"
                 >
                   Data:
                   <input
@@ -103,7 +94,7 @@ function EarningsPage() {
 
                 <label
                   htmlFor="description-input"
-                  className="block text-lg font-semibold mr-4"
+                  className="block text-lg mt-2 font-semibold mr-4"
                 >
                   Descrição:
                   <input
@@ -117,7 +108,7 @@ function EarningsPage() {
 
                 <label
                   htmlFor="value-input"
-                  className="block text-lg font-semibold mr-4"
+                  className="block text-lg mt-2 font-semibold mr-4"
                 >
                   Valor:
                   <input
@@ -130,7 +121,7 @@ function EarningsPage() {
                 </label>
 
                 <button
-                  className="ml-4 bg-blue-500 text-white p-2 rounded"
+                  className="ml-4 h-12 mt-2 bg-blue-500 text-lg mb-2 text-white p-2 rounded"
                   type="submit"
                   onClick={handleSubmit}
                 >
@@ -138,7 +129,7 @@ function EarningsPage() {
                 </button>
               </form>
               </div>
-              <table className="w-full mt-4 rounded-t-lg">
+              <table className="w-full shadow-lg mt-8 rounded-t-lg">
                 <thead >
                   <tr className="bg-blue-500 text-white ">
                     <th className="p-2 border text-2xl font-semibold">Data</th>
@@ -149,9 +140,9 @@ function EarningsPage() {
                 <tbody>
                   {earnings.map((earning) => (
                     <tr key={earning.id}>
-                      <td className="p-2 border">{earning.date}</td>
-                      <td className="p-2 border">{earning.description}</td>
-                      <td className="p-2 border">
+                      <td className="p-2 text-xl border">{earning.date}</td>
+                      <td className="p-2 text-xl border">{earning.description}</td>
+                      <td className="p-2 text-xl border">
                         R$ {earning.value.toFixed(2)}
                       </td>
                     </tr>
@@ -160,6 +151,15 @@ function EarningsPage() {
               </table>
             </div>
           )}
+          <h1 className="text-2xl ml-auto mt-7 font-semibold w-4/12">
+                <span className="bg-blue-500 p-1 shadow-lg text-white border-blue-500 rounded-l border p-1 focus:ring-blue-500">
+                Entradas Totais:
+                </span>
+                <span className="border-blue-500 shadow-lg rounded-r border p-1 focus:ring-blue-500">
+                {' '}
+                 R${totalEarnings.toFixed(2)}
+                 </span>
+              </h1>
         </div>
       </div>
     </div>
