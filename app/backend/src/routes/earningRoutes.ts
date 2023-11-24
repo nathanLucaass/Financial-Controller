@@ -2,6 +2,7 @@
 import { type Request, type Response, Router } from 'express'
 import EarningController from '../controller/EarningController'
 import NewBillValidator from '../middlewares/newBillValidator'
+import validadeToken from '../middlewares/validadeToken'
 
 const billController = new EarningController()
 const router = Router()

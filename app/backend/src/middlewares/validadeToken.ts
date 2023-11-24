@@ -12,6 +12,8 @@ const validadeToken = (req: Request, res: Response, next: NextFunction) => {
     req.body.token = jwt.verify(token, secret);
   } catch (error) {
     console.log(error);
+    console.log('Token must be a valid token');
+    
     return res.status(401).json({ message: 'Token must be a valid token' });
   }
   next();

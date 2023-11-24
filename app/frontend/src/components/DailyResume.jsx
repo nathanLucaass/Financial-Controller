@@ -31,8 +31,8 @@ function DailyResume() {
   if (!isLoading) {
     todayBills = bills.filter((bill) => bill.date === formattedDate);
     todayEarnings = earnings.filter((earning) => earning.date === formattedDate);
-    totalEntrada = calculateTotal(todayBills);
-    totalSaida = calculateTotal(todayEarnings);
+    totalEntrada = calculateTotal(todayEarnings);
+    totalSaida = calculateTotal(todayBills);
     saldo = totalEntrada - totalSaida;
   }
 
